@@ -7,7 +7,7 @@ import styles from "../../styles/slug.module.css";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("posts");
-  const paths = files.map((fileName) => ({
+  const paths = files?.map((fileName) => ({
     params: {
       slug: fileName.replace(".md", ""),
     },

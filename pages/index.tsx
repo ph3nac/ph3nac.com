@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "../styles/Index.module.css";
 export const getStaticProps = async () => {
   const files = fs.readdirSync("posts");
-  const posts = files.map((fileName) => {
+  const posts = files?.map((fileName) => {
     const slug = fileName.replace(".md", "");
     const readFile = fs.readFileSync(`posts/${fileName}`, "utf-8");
     const { data: frontmatter } = matter(readFile);
@@ -37,13 +37,13 @@ type Props = {
 
 const Index = ({ posts }: Props) => (
   <div className={styles.wrapper}>
-    {posts.map(({ slug, frontmatter }) => {
+    {posts?.map(({ slug, frontmatter }) => {
       return (
         <div key={slug} className={styles.contents}>
           <div>
             <div className={styles.date}>{frontmatter.date}</div>
             <div className={styles.tags}>
-              {frontmatter.tags.map((tag) => (
+              {frontmatter.tags?.map((tag) => (
                 <Link href="/" key={tag} className={styles.tag}>
                   {tag}
                 </Link>
