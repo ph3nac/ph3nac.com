@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import md from "markdown-it";
 import { GetStaticPaths } from "next";
 import { GetStaticProps } from "next";
+import styles from "../../styles/slug.module.css";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("posts");
@@ -36,9 +37,11 @@ type Props = {
 
 export default function Post({ frontmatter, content }: Props) {
   return (
-    <div>
-      <h1>{frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+    <div className={styles.post_root}>
+      <div>
+        <h1 className={styles.title}>{frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+      </div>
     </div>
   );
 }

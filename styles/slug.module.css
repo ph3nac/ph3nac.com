@@ -1,0 +1,43 @@
+.post_root {
+  color: #303030;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  text-align: center;
+}
+.post_root > div {
+  width: 70%;
+}
+
+.post_root img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post_root code {
+  background-color: #707070;
+  color: #e0e0e0;
+}
+.post_root pre {
+  background-color: #707070;
+  color: #e0e0e0;
+  padding: 0.2em 0.4em;
+  max-width: 100%;
+  height: auto;
+}
+
+.post_root pre > code {
+  white-space: pre-wrap; /* 改行を保持したまま折り返す */
+  word-break: break-all; /* 単語を折り返す */
+  overflow-x: auto; /* 横スクロールバーを表示 */
+  display: block; /* 親要素の幅に合わせて表示 */
+}
+
+@media screen and (max-width: 959px) {
+  .post_root > div {
+    width: 90%;
+    padding: 0px 10px;
+  }
+}
+

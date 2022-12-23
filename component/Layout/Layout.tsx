@@ -10,10 +10,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className={styles.layout_root}>
       <header className={styles.header}>
-        <Link className={styles.home} href="/">
-          Home
-        </Link>
-        <h1 className={styles.title}>hey im ph3</h1>
+        <Link href="/" className={styles.title}>{"Hey I'm ph3!"}</Link>
       </header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>

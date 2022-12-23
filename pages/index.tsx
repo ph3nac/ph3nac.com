@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
-
+import styles from "../styles/Index.module.css";
 export const getStaticProps = async () => {
   const files = fs.readdirSync("posts");
   const posts = files.map((fileName) => {
@@ -25,25 +25,35 @@ type Props = {
   posts: {
     slug: string;
     frontmatter: {
-      [key: string]: any;
+      title: string;
+      metaTitle: string;
+      metaDesc: string;
+      socialImage: string;
+      date: string;
+      tags: string[];
     };
   }[];
 };
 
 const Index = ({ posts }: Props) => (
-  <div>
+  <div className={styles.wrapper}>
     {posts.map(({ slug, frontmatter }) => {
       return (
-        <div key={slug}>
-          <Link href={`/posts/${slug}`}>
-            <Image
-              width={630}
-              height={340}
-              alt={frontmatter.title}
-              src={`/${frontmatter.socialImage}`}
-            />
-            <h1>{frontmatter.title}</h1>
-          </Link>
+        <div key={slug} className={styles.contents}>
+          <div>
+            <div className={styles.date}>{frontmatter.date}</div>
+            <div className={styles.tags}>
+              {frontmatter.tags.map((tag) => (
+                <Link href="/" key={tag} className={styles.tag}>
+                  {tag}
+                </Link>
+              ))}
+            </div>
+            <Link href={`/posts/${slug}`}>
+              <div className={styles.title}>{frontmatter.title}</div>
+              <div className={styles.metaDesc}>{frontmatter.metaDesc}</div>
+            </Link>
+          </div>
         </div>
       );
     })}
