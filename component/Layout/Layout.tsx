@@ -14,7 +14,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       </header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
-        <div className={styles.copy_right}>&copy; 2022 ph3nac</div>
+        <div className={styles.copy_right}>&copy; 2022 ph3</div>
       </footer>
     </div>
   );
