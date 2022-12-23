@@ -9,15 +9,16 @@
   text-align: right;
 }
 .title {
-  padding: 20px;
+  padding: 22px;
   font-size: 24px;
   font-weight: bold;
-  border-radius: 30px;
+  border-radius: 20px;
   background: #e0e0e0;
-  box-shadow: inset 6px 4px 0px #bebebe, inset -6px -4px 0px #ffffff;
+  box-shadow: inset 5px 2.5px 0px #bebebe, inset -5px -2.5px 0px #ffffff;
+  color: #bebebe;
 }
 .title:visited{
-  color: #303030;
+  color: #8e8e8e;
   text-decoration: none;
 }
 .title:link{
